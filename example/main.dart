@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'flutter_vslider.dart';
+import '../lib/flutter_vslider.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,17 +37,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
 
     animation.addStatusListener((status){
       print(status);
-      //moves between forwards and back
-      /*
-      if(status == AnimationStatus.completed)
-      {
-        controller.reverse(from: 1);
-      }
-      else if(status == AnimationStatus.dismissed)
-      {
-        controller.forward(from: 0);
-      }
-      */
     });
 
     controller.addListener((){
@@ -56,7 +45,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
       });
 //      print(controller.value);
       print('animation ${animation.value}');
-
     });
   }
 
