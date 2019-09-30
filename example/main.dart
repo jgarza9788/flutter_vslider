@@ -46,12 +46,16 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
               print('onStart $details');
               setState(() {
                 elevation = 24.0;
+
+//                shadowRadius = 100.0;
               });
             },
             onEnd: (details){
               print('onEnd $details');
               setState(() {
                 elevation = 3.0;
+
+//                shadowRadius = 0.0;
               });
             },
             icon: Icon(
