@@ -1,3 +1,7 @@
+## 0.1.3
+
+* use AnimatedContainer
+
 ## 0.1.2
 
 * fixed UpperCamelCase

@@ -18,43 +18,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
   double shadowRadius = 100.0;
 
 
-
-  AnimationController controller;
-  Animation animation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    controller = AnimationController(
-      duration: Duration(milliseconds: 100),
-      vsync: this,
-    );
-
-    //https://api.flutter.dev/flutter/animation/Curves-class.html
-    animation = CurvedAnimation(parent: controller,curve: Curves.easeIn);
-
-
-    animation.addStatusListener((status){
-      print(status);
-    });
-
-    controller.addListener((){
-      setState(() {
-        iconSize = animation.value;
-      });
-//      print(controller.value);
-      print('animation ${animation.value}');
-    });
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -81,22 +44,20 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
             },
             onStart: (details){
               print('onStart $details');
-              controller.forward(from: 0);
               setState(() {
                 elevation = 24.0;
               });
             },
             onEnd: (details){
               print('onEnd $details');
-              controller.reverse(from: 1);
               setState(() {
                 elevation = 3.0;
               });
             },
             icon: Icon(
               Icons.music_note,
-              size: (iconSize * 10.0) + 50.0,
-              color: Colors.black.withOpacity(0.25),
+              size: (value * 10.0) + 50.0,
+              color: Colors.black.withOpacity((value * 0.50) + 0.25),
             ),
           ),
         ),

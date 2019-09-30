@@ -39,52 +39,56 @@ class VSlider extends StatelessWidget {
       onVerticalDragStart: onStart ,
       onVerticalDragEnd: onEnd ,
 
-      child: Material(
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 750),
+        curve: Curves.easeInOut,
+        child: Material(
 
-        clipBehavior: Clip.hardEdge,
-        elevation: elevation==null? 1.0:elevation,
-        borderRadius: BorderRadius.circular(radius==null?25.0:radius),
+          clipBehavior: Clip.hardEdge,
+          elevation: elevation==null? 1.0:elevation,
+          borderRadius: BorderRadius.circular(radius==null?25.0:radius),
 
-        child: Container(
-          height: 300.0,
-          width: 100.0,
-          child: Stack(
-            overflow: Overflow.clip,
-            alignment: Alignment.bottomCenter,
-            children: <Widget>[
-              Container(
-                color: color,
-              ),
+          child: Container(
+            height: 300.0,
+            width: 100.0,
+            child: Stack(
+              overflow: Overflow.clip,
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                Container(
+                  color: color,
+                ),
 
-              Container(
+                Container(
 //                color: fillColor,
-                height: this.value * 300.0,
-                decoration: BoxDecoration(
-                  color: fillColor,
-                  boxShadow: [
-                    new BoxShadow(
-                      color: fillShadowColor==null?Colors.black:fillShadowColor,
-                      offset: Offset(0.0, 0.0),
-                      blurRadius: fillShadowRadius==null?0.0:fillShadowRadius,
-                    )
-                  ],
+                  height: this.value * 300.0,
+                  decoration: BoxDecoration(
+                    color: fillColor,
+                    boxShadow: [
+                      new BoxShadow(
+                        color: fillShadowColor==null?Colors.black:fillShadowColor,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: fillShadowRadius==null?0.0:fillShadowRadius,
+                      )
+                    ],
+                  ),
                 ),
-              ),
 
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Container(
-                      height: 100.0,
-                      width: 100.0,
-                      child: icon==null?Container():icon,
-                    )
-                  ],
-                ),
-              )
-            ],
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Container(
+                        height: 100.0,
+                        width: 100.0,
+                        child: icon==null?Container():icon,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

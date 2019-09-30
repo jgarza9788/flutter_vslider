@@ -19,52 +19,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
 
 
 
-  AnimationController controller;
-  Animation animation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    controller = AnimationController(
-      duration: Duration(milliseconds: 100),
-      vsync: this,
-    );
-
-    //https://api.flutter.dev/flutter/animation/Curves-class.html
-    animation = CurvedAnimation(parent: controller,curve: Curves.easeIn);
-
-
-    animation.addStatusListener((status){
-      print(status);
-      //moves between forwards and back
-      /*
-      if(status == AnimationStatus.completed)
-      {
-        controller.reverse(from: 1);
-      }
-      else if(status == AnimationStatus.dismissed)
-      {
-        controller.forward(from: 0);
-      }
-      */
-    });
-
-    controller.addListener((){
-      setState(() {
-        iconSize = animation.value;
-      });
-//      print(controller.value);
-      print('animation ${animation.value}');
-
-    });
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
 
 
   @override
@@ -93,14 +47,12 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
             },
             onStart: (details){
               print('onStart $details');
-              controller.forward(from: 0);
               setState(() {
                 elevation = 24.0;
               });
             },
             onEnd: (details){
               print('onEnd $details');
-              controller.reverse(from: 1);
               setState(() {
                 elevation = 3.0;
               });

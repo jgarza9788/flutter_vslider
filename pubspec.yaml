@@ -2,7 +2,7 @@ name: flutter_vslider
 description: a vertical slider that allows a user to slide up and down to change a value
 author: Justin Garza <JGarza9788@gmail.com>
 homepage: https://github.com/jgarza9788/flutter_vslider/
-version: 0.1.1
+version: 0.1.3
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
