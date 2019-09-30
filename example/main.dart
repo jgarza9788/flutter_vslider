@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
           backgroundColor: Colors.blueGrey,
         ),
         body: Center(
-          child: vSlider(
+          child: VSlider(
             color: Colors.blueGrey[500],
             fillColor: Colors.lightGreenAccent,
             fillShadowColor: Colors.lightGreenAccent[700],

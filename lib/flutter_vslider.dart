@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class vSlider extends StatelessWidget {
-  vSlider({
+class VSlider extends StatelessWidget {
+  VSlider({
     this.color,
     this.fillColor,
     this.fillShadowRadius,
